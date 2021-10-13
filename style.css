@@ -1,0 +1,59 @@
+body {
+  background-image: url("img/background.jpg");
+  font-size: 1.5rem;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.grid2x2 {
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.grid2x2 > div {
+  display: flex;
+  flex-basis: calc(50% - 40px);
+  justify-content: center;
+  flex-direction: column;
+}
+.grid2x2 > div > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.box {
+  margin: 20px;
+}
+.box1 {
+  background-color: #2a75bb
+}
+.box2 {
+  background-color: #ffcb05
+}
+.box3 {
+  background-color: #ffcb05
+}
+.box4 {
+  background-color: #2a75bb
+}
+
+#poke-img{
+  width: 20%;
+}
+
+#poke-pic{
+  align-content: center !important;
+}
+
+#pokemon-id{
+  font-size: 5rem;
+}
+
+.test{
+  margin:0 auto !important
+}
+
+#poke-name{
+  font-size: 2.5rem;
+}
