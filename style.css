@@ -54,6 +54,9 @@ body {
 
 #pokemon-id {
   font-size: 5rem;
+  color:var(--main-blue);
+  font-weight: bold;
+
 }
 
 .test {
@@ -67,6 +70,7 @@ body {
   font-weight: bold;
   width: 80%;
   margin: auto;
+  color:var(--main-blue);
 }
 
 .poke-evo {
