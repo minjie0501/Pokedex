@@ -1,9 +1,11 @@
 const getPokemon = async (input) => {
   try {
+    input = input.toString().toLowerCase()
     const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`);
     const parsedData = await data.json();
     return parsedData;
   } catch (error) {
+    alert('Please enter a correct name or Id')
     console.log(error);
   }
 };
@@ -63,6 +65,17 @@ const mainGame = async (input) => {
   pokeImg.src = pokeInfo.sprites.front_default;
   pokeImg.alt = pokeInfo.name;
 
+    //////////////////////////////////////
+  
+    document.getElementById("poke-img").addEventListener("mouseover", () => {
+      pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokeId.innerHTML}.png`
+    });
+  
+    document.getElementById("poke-img").addEventListener("mouseout", () => {
+      pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeId.innerHTML}.png`
+    });
+    //////////////////////////////////////
+
   if (pokeInfo.moves.length >= 4) {
     const randomMoves = getRandomNumbers(pokeInfo.moves.length);
     for (let i = 0; i < randomMoves.length; i++) {
@@ -80,7 +93,7 @@ const mainGame = async (input) => {
   document.getElementById(`ev`).innerHTML = "";
   for (let j = 0; j < evolution.length; j++) {
     const picUrl = await getPokemon(evolution[j]);
-    document.getElementById(`ev`).innerHTML += `<img id="e-${j}" src="${picUrl.sprites.front_default}" alt="${picUrl.name}"> `;
+    document.getElementById(`ev`).innerHTML += `<img class="poke-evo zoom2" id="e-${j}" src="${picUrl.sprites.front_default}" alt="${picUrl.name}"> `;
   }
 
   for (let k = 0; k < evolution.length; k++) {
@@ -98,3 +111,4 @@ document.getElementById("poke-search").addEventListener("click", async () => {
 
 //3 TODO: check if ditto, id25 and id24 works
 // https://pokeapi.co/api/v2/pokemon-species/346
+mainGame(25)
