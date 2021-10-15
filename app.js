@@ -156,12 +156,10 @@ const mainGame = async (input) => {
     evolution = evolution.split(" ");
     // //TODO: check here if evolution[1] (or any other?) includes a colon; if yes then it has more than one evolution
     let evArr = [];
-    let checker = false;
     if (evolution.length > 1) {
       if (evolution[1].includes(":")) {
         evArr = evolution[1].split(":");
         evolution[1] = evArr[1];
-        checker = true;
       }
     }
 
